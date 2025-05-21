@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thiago & Carolina - 04/10/2025</title>
+  <title>Carolina & Thiago - 04/10/2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans:wght@300;400;600&display=swap"
     rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
     html {
       scroll-behavior: smooth;
@@ -16,6 +18,46 @@
 
     .navbar {
       transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .navbar.scrolled {
+      background-color: white;
+    }
+
+    /* Animação do Menu Mobile */
+    #mobileMenu {
+      transition: all 0.3s ease-in-out;
+      transform-origin: top;
+      opacity: 0;
+      transform: translateY(-20px) scaleY(0.9);
+    }
+
+    #mobileMenu.show {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+    }
+
+    /* Animação do Modal */
+    .modal-overlay {
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+    }
+
+    .modal-content {
+      transition: all 0.3s ease-in-out;
+      transform: scale(0.95) translateY(20px);
+      opacity: 0;
+    }
+
+    .modal-overlay.show .modal-content {
+      transform: scale(1) translateY(0);
+      opacity: 1;
     }
 
     body {
@@ -32,13 +74,33 @@
 
 <body class="bg-rose-50">
   <!-- Navbar Fixa -->
-  <nav class="navbar fixed w-full bg-white shadow-md z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-center">
-      <div class="flex gap-6 md:gap-10">
-        <a href="#hero" class="text-rose-700 hover:text-rose-600">Início</a>
-        <a href="#celebração" class="text-rose-700 hover:text-rose-600">Celebração</a>
-        <a href="#confirmacao" class="text-rose-700 hover:text-rose-600">Confirmação</a>
-        <a href="#presentes" class="text-rose-700 hover:text-rose-600">Presentes</a>
+  <nav class="navbar fixed w-full z-50">
+    <div class="container mx-auto px-4 py-3 pr-24">
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex justify-end mb-2">
+        <button onclick="toggleMobileMenu()" class="text-white hover:text-rose-200 bg-rose-600/80 p-2 rounded-lg backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex justify-center">
+        <div class="flex gap-10">
+          <a href="#hero" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Início</a>
+          <a href="#celebração" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Celebração</a>
+          <a href="#confirmacao" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Confirmação</a>
+          <a href="#presentes" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Presentes</a>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden">
+        <div class="flex flex-col items-center gap-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg">
+          <a href="#hero" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Início</a>
+          <a href="#celebração" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Celebração</a>
+          <a href="#confirmacao" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Confirmação</a>
+          <a href="#presentes" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Presentes</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -46,62 +108,59 @@
   <!-- Hero Section -->
   <header id="hero" class="relative h-screen flex items-center justify-center text-center">
     <div
-      class="absolute inset-0 bg-[url('https://lh3.googleusercontent.com/pw/AP1GczNHkDqLDshar6L8N_QiBixZAywauTDY8XQa5mP44SiDBCeqXA-v7kUUPED1JRet_eT7-HpfkbZypxM2YVi5i8U8ZohJSsDHoUwoUf1gC6MuWzctKhbt6C1tZpv2eB8h8Q8V_wcM3y4MaqlOS5ntCP47jw=w1324-h993-s-no-gm')] bg-cover bg-center">
+      class="absolute inset-0 bg-[url('/public/images/hero-background.png')] bg-cover bg-center">
     </div>
     <div class="absolute inset-0 bg-black/40"></div>
     <div class="relative z-10 px-4">
-      <h1 class="text-6xl md:text-8xl font-great-vibes text-white mb-4 drop-shadow-lg">Thiago & Carolina</h1>
-      <p class="text-2xl md:text-3xl text-white mb-8 font-raleway drop-shadow-md">04 de Outubro de 2025</p>
-      <p class="text-white font-raleway italic max-w-2xl mx-auto text-lg md:text-xl drop-shadow-md">
-        "O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha.
-        Tudo sofre, tudo crê, tudo espera, tudo suporta. O amor jamais acaba." - 1 Coríntios 13:4-8
-      </p>
+      <h1 class="text-6xl md:text-8xl font-great-vibes text-white mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-duration="1000">Carolina & Thiago</h1>
+      <p class="text-2xl md:text-3xl text-white mb-8 font-raleway drop-shadow-md" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">04 de Outubro de 2025</p>
     </div>
   </header>
 
-  <!-- Detalhes da Celebração Modificada -->
+  <!-- Bible Quote Section -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xl md:text-2xl text-rose-700 italic font-playfair leading-relaxed" data-aos="fade-up">
+        "O amor é paciente, o amor é bondoso.<br>
+        Não inveja, não se vangloria, não se orgulha.<br>
+        Tudo sofre, tudo crê, tudo espera, tudo suporta.<br>
+        O amor jamais acaba."
+      </p>
+      <p class="mt-4 text-gray-600 font-medium" data-aos="fade-up" data-aos-delay="200">1 Coríntios 13:4-8</p>
+    </div>
+  </section>
+
+  <!-- Detalhes da Celebração -->
   <section id="celebração" class="py-16 px-4 md:px-8 max-w-6xl mx-auto">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-raleway font-bold mb-8 text-rose-700">Nossa Celebração</h2>
+      <h2 class="text-3xl font-raleway font-bold mb-8 text-rose-700" data-aos="fade-down">Nossa Celebração</h2>
 
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <!-- Cerimônia com Foto -->
-        <div class="bg-white p-6 rounded-lg shadow-lg">
+        <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-right" data-aos-duration="1000">
           <img
-            src="https://scontent.fbnu3-1.fna.fbcdn.net/v/t39.30808-6/480266455_924219776590569_3274858329023634325_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeGkdsBWfa2WDgY200M68zJuFP0l4sqrFrAU_SXiyqsWsHIoj0FqtRQtiOQpl16riBtuOiosurjcZTcPH6SWt5u3&_nc_ohc=hwz9UH4ggWsQ7kNvwFy-sJa&_nc_oc=Adko816ZRbwildPGYz4KHo7X0-40L7Tf3BdUTvdK6ch0Gq2Io5S1HM-wYQMh_CICO6ss2Jl5-N-Iigp5P4w3YKDI&_nc_zt=23&_nc_ht=scontent.fbnu3-1.fna&_nc_gid=xGALPP2wutUNzxse-6hZYw&oh=00_AfGJbFklj_oGabikqTgjX3lMwmwMHqxGGyD9KVwIkEMcVQ&oe=681D5916"
+            src="/public/images/capela-santa-catarina.png"
             alt="Capela Santa Catarina" class="w-full h-64 object-cover rounded-lg mb-4">
           <h3 class="text-xl font-semibold mb-2">Cerimônia</h3>
           <p class="text-gray-600 mb-2">10 horas</p>
           <p class="text-gray-600 mb-4">Capela Santa Catarina de Alexandria</p>
           <a href="https://maps.app.goo.gl/Ub1kWedXro7NNUPf7" target="_blank"
             class="text-rose-600 hover:text-rose-700 transition flex items-center justify-center gap-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
+            <img src="/public/images/map-marker.png" alt="Localização" class="h-10 w-10">
             R. Dona Francisca, 9660 - Zona Industrial Norte, Joinville - SC
           </a>
         </div>
 
         <!-- Recepção com Foto -->
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-          <img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/32/32/4a/restaurante-colonial.jpg"
+        <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-left" data-aos-duration="1000">
+          <img src="/public/images/restaurante-colonial.png"
             alt="Restaurante Colonial" class="w-full h-64 object-cover rounded-lg mb-4">
           <h3 class="text-xl font-semibold mb-2">Recepção</h3>
           <p class="text-gray-600 mb-2">12 horas</p>
           <p class="text-gray-600 mb-4">Restaurante Colonial Gute Küche</p>
           <a href="https://maps.app.goo.gl/rqfv3aFZswGcGS399" target="_blank"
             class="text-rose-600 hover:text-rose-700 transition flex items-center justify-center gap-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
+            <img src="/public/images/map-marker.png" alt="Localização" class="h-10 w-10">
             R. Eugênio Ernesto Kunde, 1100 - Pirabeiraba, Joinville - SC
           </a>
         </div>
@@ -109,12 +168,12 @@
     </div>
   </section>
 
-  <!-- Seção de Confirmação de Presença Nova -->
+  <!-- Seção de Confirmação de Presença -->
   <section id="confirmacao" class="py-16 px-4 md:px-8 bg-white">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8 text-rose-700">Confirmação de Presença</h2>
+      <h2 class="text-3xl font-bold mb-8 text-rose-700" data-aos="fade-down">Confirmação de Presença</h2>
 
-      <div class="bg-rose-50 rounded-xl p-8 mb-8 shadow-sm">
+      <div class="bg-rose-50 rounded-xl p-8 mb-8 shadow-sm" data-aos="zoom-in" data-aos-duration="1000">
         <p class="text-lg mb-4">
           Queridos amigos e familiares,<br>
           Para que possamos nos preparar da melhor forma, pedimos que confirmem sua presença até
@@ -139,179 +198,197 @@
       <div class="mt-8 max-w-2xl mx-auto text-gray-600">
         <p class="mb-4">Sua confirmação é essencial para nossa organização. Caso prefira, você também pode nos contatar
           por outros meios.</p>
-        <p class="text-sm">Com carinho,<br>Thiago & Carolina</p>
+        <p class="text-sm">Com carinho,<br>Carolina & Thiago</p>
       </div>
     </div>
   </section>
 
   <!-- Lista de Presentes -->
   <section id="presentes" class="py-16 px-4 md:px-8 bg-white">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-raleway font-bold mb-4 text-center text-rose-700">Nossa Lista de Presentes</h2>
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-raleway font-bold mb-4 text-center text-rose-700" data-aos="fade-down">Nossa Lista de Presentes</h2>
 
       <div class="text-center mb-12 max-w-2xl mx-auto">
-        <p class="text-sm text-rose-600 italic">
+        <p class="text-sm text-rose-600 italic" data-aos="fade-up" data-aos-delay="200">
           "Cada um dê conforme determinou em seu coração, não com pesar ou por obrigação,
           pois Deus ama quem dá com alegria." - 2 Coríntios 9:7
         </p>
         <div class="border-t border-rose-100 w-24 mx-auto my-6"></div>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <!-- Casa Própria -->
-        <div class="bg-white p-6 border rounded-lg hover:shadow-lg transition">
-          <img
-            src="https://lh3.googleusercontent.com/pw/AP1GczMzdlcHovOYvHHBMGL0Vbej7sQZif2cKvJ3NtwwGa2Bie1-Gg5ohAxF2rJS0rneXTwvecAULa1IG5_WZ3b9GBzROvtLUzO-gcH7OY2hvklMtlJr0WO9OiVw0UzEP0ary3NtF4Xjq8_UEsBJgt0hFhAhKA=w1442-h961-s-no-gm"
-            alt="Casa dos Sonhos" class="w-full h-48 object-cover mb-4 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Nossa Casa Própria</h3>
-          <p class="text-gray-600 mb-4">
-            Estamos economizando para o financiamento de nosso primeiro lar.
-            Sua contribuição nos ajudará a realizar este sonho tão especial!
-          </p>
-          <button onclick="showPaymentModal(280)" class="bg-rose-600 text-white px-4 py-2 rounded-full w-full">
-            Contribuir para a Casa
-          </button>
-        </div>
-
-        <!-- Viagem em Família -->
-        <div class="bg-white p-6 border rounded-lg hover:shadow-lg transition">
-          <img
-            src="https://lh3.googleusercontent.com/pw/AP1GczP1tTS-JW1V2xdTMVmLup2nE5PAtuIdmuRpag4iNlrFIiK8I6L_S6Px0WO9471dI2DOxZugYkkUtVHHHnyB_S2-guL_3xs6mMRpdRie5VtdWe5ThBOnLdySwlAlalM_gB_-uvl86LRiAHDsgsGkhriegA=w1281-h961-s-no-gm"
-            alt="Viagem em Família" class="w-full h-48 object-cover mb-4 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Viagem em Família</h3>
-          <p class="text-gray-600 mb-4">
-            Reserva para uma viagem turística com nossa pequena Melissa, incluindo hospedagem e passeios.
-          </p>
-          <button onclick="showPaymentModal(280)" class="bg-rose-600 text-white px-4 py-2 rounded-full w-full">
-            Contribuir para a Viagem
-          </button>
-        </div>
-
-        <!-- Sala de Estar -->
-        <div class="bg-white p-6 border rounded-lg hover:shadow-lg transition">
-          <img
-            src="https://lh3.googleusercontent.com/pw/AP1GczOXo2BjJVv8Y54MnPSXoKppW_in3-3N6L0rGJ6aKShNW_tIbVCPjYYkkitRv-G2xgypotltK50hw78QxrEK2_wU3jws8IzxYNESDU-xRDsWl5whB7EfE00pX3r-GPjjxgVoq05zApW2RbA4hC2aQ2Z1aw=w1281-h961-s-no-gm"
-            alt="Sala Aconchegante" class="w-full h-48 object-cover mb-4 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Itens para a Sala</h3>
-          <p class="text-gray-600 mb-4">
-            Poltronas, televisão, rack e itens de organização.
-          </p>
-          <button onclick="showPaymentModal(280)" class="bg-rose-600 text-white px-4 py-2 rounded-full w-full">
-            Contribuir para a Sala
-          </button>
-        </div>
-
-        <!-- Cozinha -->
-        <div class="bg-white p-6 border rounded-lg hover:shadow-lg transition">
-          <img
-            src="https://lh3.googleusercontent.com/pw/AP1GczOjQxaiqgueAl-_Ai80lHlsST5cfCTb1UL65WkbG25sfCx-urCsiNbcRusXvVcTuTcPMYY-dbrYgNQrN_Ku9m64hJYPzg2PsXZVjytCCd5I4uQqXtBB4Iz4NmM1-rq2UefgCI10e0d2RQJZz-NK3JDUzg=w721-h961-s-no-gm"
-            alt="Cozinha Equipada" class="w-full h-48 object-cover mb-4 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Eletrodomésticos</h3>
-          <p class="text-gray-600 mb-4">
-            Forno elétrico, sanduicheira, liquidificador e grelha elétrica.
-          </p>
-          <button onclick="showPaymentModal(280)" class="bg-rose-600 text-white px-4 py-2 rounded-full w-full">
-            Contribuir para a Cozinha
-          </button>
-        </div>
-
-        <!-- Valor Personalizado -->
-        <div class="bg-white p-6 border rounded-lg hover:shadow-lg transition">
-          <img
-            src="https://lh3.googleusercontent.com/pw/AP1GczNfAT0a-bpt90i9ja5bAf6uHIWmaiP-Ur15OTrN7XDJBEhgkBPsnBFdIrhO550bUUSTbivqo-DiJOZ7sPRg2QfFLUZs4VS7ScQONa7ozTm4ZIbS9CTAbjk0az88PqqbWvhRzAPSaD3n-bHdJpGdggy8Sw=w721-h961-s-no-gm"
-            alt="Presente Personalizado" class="w-full h-48 object-cover mb-4 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Valor Livre</h3>
-          <p class="text-gray-600 mb-4">
-            Contribua com qualquer valor que desejar:
-          </p>
-          <button onclick="showPaymentModal(0)" class="bg-rose-600 text-white px-4 py-2 rounded-full w-full">
-            Escolher Valor
-          </button>
+      <!-- Lojas Parceiras -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-raleway font-semibold mb-8 text-center text-rose-700" data-aos="fade-down">Nossas Listas em Lojas</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a href="https://www.magazineluiza.com.br" target="_blank"
+            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-4 border border-gray-100"
+            data-aos="fade-up" data-aos-delay="100">
+            <img src="/public/images/stores/mercado-livre.png" alt="Mercado Livre" class="h-12 object-contain">
+            <span class="text-gray-600 font-medium">Mercado Livre</span>
+          </a>
+          <a href="https://www.americanas.com.br" target="_blank"
+            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-4 border border-gray-100"
+            data-aos="fade-up" data-aos-delay="200">
+            <img src="/public/images/stores/americanas.png" alt="Americanas" class="h-12 object-contain">
+            <span class="text-gray-600 font-medium">Americanas</span>
+          </a>
+          <a href="https://www.tokstok.com.br" target="_blank"
+            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-4 border border-gray-100"
+            data-aos="fade-up" data-aos-delay="300">
+            <img src="/public/images/stores/havan.png" alt="Havan" class="h-12 object-contain">
+            <span class="text-gray-600 font-medium">Havan</span>
+          </a>
+          <a href="https://www.camicado.com.br" target="_blank" 
+            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-4 border border-gray-100"
+            data-aos="fade-up" data-aos-delay="400">
+            <img src="/public/images/stores/amazon.png" alt="Amazon" class="h-12 object-contain">
+            <span class="text-gray-600 font-medium">Amazon</span>
+          </a>
         </div>
       </div>
 
-      <!-- Modal para os primeiros itens -->
-      <div id="paymentModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div class="bg-white p-8 rounded-lg max-w-md w-full">
-          <h3 class="text-2xl font-playfair font-semibold mb-4 text-rose-700">Faça sua contribuição</h3>
-          <p class="text-sm text-gray-600 mb-6 text-center">
-            Com carinho e gratidão, aceitamos seu presente de amor através das opções abaixo
-          </p>
-
-          <!-- Seção PIX Melhorada -->
-          <div class="mb-8">
-            <div class="flex items-center justify-between mb-4">
-              <h4 class="font-semibold text-lg">PIX</h4>
-              <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
-            </div>
-            <div class="bg-rose-50 p-4 rounded-lg">
-              <div class="flex items-center justify-between mb-3">
-                <span class="font-mono text-sm">chave.pix@exemplo.com</span>
-                <button onclick="copyPixKey()"
-                  class="ml-2 bg-rose-600 text-white px-3 py-1 rounded text-sm hover:bg-rose-700">
-                  Copiar
+      <!-- Lista de Presentes -->
+      <div>
+        <h3 class="text-2xl font-raleway font-semibold mb-8 text-center text-rose-700" data-aos="fade-down">Lista de Presentes Sugeridos</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+          <!-- Item 1 -->
+          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
+            data-aos="fade-up" data-aos-delay="100">
+            <img src="/public/images/gifts/air-fryer.png" alt="Air Fryer" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-gray-800 mb-2">Air Fryer Digital</h4>
+              <div class="flex items-center justify-between flex-col gap-2">
+                <span class="text-rose-600 font-semibold">R$ 450,00</span>
+                <button onclick="showPaymentModal(450, 'Air Fryer Digital')" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition-colors">
+                  Presentear
                 </button>
               </div>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReXB6tvgHUw7BV-VIRDiLRjQDhFepQsGNxWA&s"
-                alt="QR Code PIX" class="w-32 mx-auto">
             </div>
           </div>
 
-          <!-- Cartão de Crédito Movido para Baixo -->
-          <div class="border-t pt-6">
-            <h4 class="font-semibold mb-4 text-gray-700">Cartão de Crédito</h4>
-            <div class="grid grid-cols-2 gap-3">
-              <a href="https://checkout.pagseguro.com/?amount=82" target="_blank"
-                class="bg-rose-100 text-rose-600 py-2 rounded text-center hover:bg-rose-200 transition">R$ 82</a>
-              <a href="https://checkout.pagseguro.com/?amount=150" target="_blank"
-                class="bg-rose-100 text-rose-600 py-2 rounded text-center hover:bg-rose-200 transition">R$ 150</a>
-              <a href="https://checkout.pagseguro.com/?amount=280" target="_blank"
-                class="bg-rose-100 text-rose-600 py-2 rounded text-center hover:bg-rose-200 transition">R$ 280</a>
-              <a href="https://checkout.pagseguro.com/?amount=520" target="_blank"
-                class="bg-rose-100 text-rose-600 py-2 rounded text-center hover:bg-rose-200 transition">R$ 520</a>
-              <a href="https://checkout.pagseguro.com/?amount=950" target="_blank"
-                class="bg-rose-100 text-rose-600 py-2 rounded text-center hover:bg-rose-200 transition">R$ 950</a>
-              <a href="https://checkout.pagseguro.com/?amount=1800" target="_blank"
-                class="bg-rose-100 text-rose-600 py-2 rounded text-center hover:bg-rose-200 transition">R$ 1.800</a>
-              <a href="https://checkout.pagseguro.com/?amount=3200" target="_blank"
-                class="bg-rose-100 text-rose-600 py-2 rounded text-center hover:bg-rose-200 transition">R$ 3.200</a>
-              <a href="https://checkout.pagseguro.com/?amount=6000" target="_blank"
-                class="bg-rose-100 text-rose-600 py-2 rounded text-center hover:bg-rose-200 transition">R$ 6.000</a>
+          <!-- Item 2 -->
+          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
+            data-aos="fade-up" data-aos-delay="200">
+            <img src="/public/images/gifts/mixer.png" alt="Mixer" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-gray-800 mb-2">Mixer Multiuso</h4>
+              <div class="flex items-center justify-between flex-col gap-2">
+                <span class="text-rose-600 font-semibold">R$ 280,00</span>
+                <button onclick="showPaymentModal(280, 'Mixer Multiuso')" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition-colors">
+                  Presentear
+                </button>
+              </div>
             </div>
           </div>
+
+          <!-- Item 3 -->
+          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
+            data-aos="fade-up" data-aos-delay="300">
+            <img src="/public/images/gifts/coffee-maker.png" alt="Cafeteira" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-gray-800 mb-2">Cafeteira Elétrica</h4>
+              <div class="flex items-center justify-between flex-col gap-2">
+                <span class="text-rose-600 font-semibold">R$ 320,00</span>
+                <button onclick="showPaymentModal(320, 'Cafeteira Elétrica')" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition-colors">
+                  Presentear
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
+            data-aos="fade-up" data-aos-delay="400">
+            <img src="/public/images/gifts/toaster.png" alt="Torradeira" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-gray-800 mb-2">Torradeira Smart</h4>
+              <div class="flex items-center justify-between flex-col gap-2">
+                <span class="text-rose-600 font-semibold">R$ 180,00</span>
+                <button onclick="showPaymentModal(180, 'Torradeira Smart')" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition-colors">
+                  Presentear
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Modal para o último item -->
-      <div id="customPaymentModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div class="bg-white p-8 rounded-lg max-w-md w-full">
-          <h3 class="text-2xl font-playfair font-semibold mb-4 text-rose-700">Faça sua contribuição</h3>
-          <p class="text-sm text-gray-600 mb-6 text-center">
-            Com carinho e gratidão, aceitamos seu presente de amor através das opções abaixo
-          </p>
+      <!-- Valor Personalizado -->
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">Não encontrou o que procurava?</p>
+        <button onclick="showPaymentModal(0)" class="bg-rose-600 text-white px-6 py-3 rounded-full hover:bg-rose-700 transition-colors inline-flex items-center gap-2">
+          Presentear com outro valor 🤍
+        </button>
+      </div>
+    </div>
 
-          <!-- Seção PIX Melhorada -->
-          <div class="mb-8">
-            <div class="flex items-center justify-between mb-4">
-              <h4 class="font-semibold text-lg">PIX</h4>
-              <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
+    <!-- Modal Unificada -->
+    <div id="paymentModal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-[100] overflow-y-auto">
+      <div class="min-h-full flex items-center justify-center p-2">
+        <div class="modal-content bg-white w-full sm:max-w-sm mx-auto rounded-xl shadow-xl">
+          <!-- Header -->
+          <div class="p-3 border-b border-gray-100">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-playfair font-semibold text-rose-700">Presenteie o casal 🤍</h3>
+              <button onclick="closeModal('paymentModal')" class="text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-            <div class="bg-rose-50 p-4 rounded-lg">
-              <div class="flex items-center justify-between mb-3">
-                <span class="font-mono text-sm">chave.pix@exemplo.com</span>
-                <button onclick="copyPixKey()"
-                  class="ml-2 bg-rose-600 text-white px-3 py-1 rounded text-sm hover:bg-rose-700">
-                  Copiar
-                </button>
+          </div>
+
+          <!-- Content -->
+          <div class="p-3">
+            <!-- Valor Selecionado ou Input de Valor -->
+            <div id="fixedValueSection" class="mb-3">
+              <div class="bg-rose-50 p-2 rounded-lg text-center">
+                <p id="selectedItemName" class="text-sm text-gray-600 mb-1"></p>
+                <p id="selectedValue" class="text-lg font-bold text-rose-600"></p>
               </div>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReXB6tvgHUw7BV-VIRDiLRjQDhFepQsGNxWA&s"
-                alt="QR Code PIX" class="w-32 mx-auto">
+            </div>
+
+            <!-- Opções de Pagamento -->
+            <div id="paymentOptions">
+              <!-- PIX -->
+              <div class="bg-gray-50 p-3 rounded-lg">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-medium text-sm">PIX</h4>
+                  <img src="/public/images/pix-logo.png" alt="Logo PIX" class="h-5">
+                </div>
+                
+                <div class="flex justify-center mb-2">
+                  <img src="/public/images/qr-code-pix.png" alt="QR Code PIX" class="h-24 border-2 border-white rounded shadow-sm">
+                </div>
+
+                <button onclick="copyPixKey()" 
+                  class="block w-full bg-rose-600 text-white text-center py-2 rounded-lg hover:bg-rose-700 transition-colors text-sm">
+                  Copiar Chave PIX
+                </button>
+                <div id="pixKey" class="mt-1 text-center text-xs text-gray-500 font-mono">47999999999</div>
+              </div>
+
+              <!-- Cartão de Crédito -->
+              <div id="creditCardSection" class="bg-gray-50 p-3 rounded-lg">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-medium text-sm">Cartão</h4>
+                  <div class="flex gap-1">
+                    <img src="/public/images/visa.png" alt="Visa" class="h-4">
+                    <img src="/public/images/mastercard.png" alt="Mastercard" class="h-4">
+                  </div>
+                </div>
+
+                <div class="flex justify-center mb-2">
+                  <img src="/public/images/credit-card-icon.png" alt="Cartão de Crédito" class="h-24 p-4">
+                </div>
+
+                <a href="https://checkout.stripe.com/c/pay/YOUR_STRIPE_LINK_HERE" target="_blank" 
+                  class="block w-full bg-rose-600 text-white text-center py-2 rounded-lg hover:bg-rose-700 transition-colors text-sm">
+                  Pagar com Cartão
+                </a>
+                <div class="mt-1 text-center text-xs text-gray-500">Via PagBank</div>
+              </div>
             </div>
           </div>
         </div>
@@ -319,56 +396,206 @@
     </div>
   </section>
 
-  <!-- Novo Footer -->
+  <!-- Mensagem Final -->
+  <section class="py-16 px-4 bg-white border-t border-rose-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-playfair text-rose-700 mb-6" data-aos="fade-up">Gratidão</h2>
+      <p class="text-gray-600 leading-relaxed mb-4" data-aos="fade-up" data-aos-delay="200">
+        Queridos amigos e familiares, sua presença e carinho são os maiores presentes que poderíamos receber. 
+        Cada um de vocês tem um lugar especial em nossa história e queremos compartilhar esse momento único com todos.
+      </p>
+      <p class="text-gray-600 italic" data-aos="fade-up" data-aos-delay="400">
+        Com amor e alegria,<br>
+        Carolina & Thiago
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="bg-rose-700 text-white py-8">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-6">
-        <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-        </svg>
-        <p class="text-lg font-playfair">Com amor, Thiago & Carolina</p>
+        <img src="/public/images/rings-icon.png" alt="Alianças" class="w-12 h-12 mx-auto mb-4">
+        <p class="text-lg font-playfair">Carolina & Thiago</p>
+        <p class="text-sm mt-2 font-light">04 de Outubro de 2025</p>
       </div>
       <div class="flex flex-col md:flex-row justify-center gap-6 text-center text-sm">
-        <div>
-          <h5 class="font-semibold mb-2">Contato</h5>
-          <p>(47) 99999-9999</p>
-        </div>
         <div class="border-l border-rose-200 hidden md:block"></div>
-        <div>
-          <h5 class="font-semibold mb-2">Agradecimento Especial</h5>
-          <p class="max-w-xs mx-auto">Sua presença torna nosso dia ainda mais especial</p>
-        </div>
       </div>
     </div>
   </footer>
 
   <script>
-    function showPaymentModal(baseValue) {
-      if (baseValue === 0) {
-        document.getElementById('customPaymentModal').classList.remove('hidden');
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        // Pequeno delay para permitir que a transição ocorra
+        setTimeout(() => {
+          mobileMenu.classList.add('show');
+        }, 10);
       } else {
-        document.getElementById('paymentModal').classList.remove('hidden');
+        mobileMenu.classList.remove('show');
+        // Aguarda a animação terminar antes de esconder
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
       }
     }
 
-    function copyPixKey() {
-      const pixKey = "sua_chave_pix_aqui"; // Substitua pela sua chave
-      navigator.clipboard.writeText(pixKey)
-        .then(() => alert("Chave PIX copiada com sucesso!"))
-        .catch(() => alert("Falha ao copiar chave"));
+    function preventScroll(prevent) {
+      document.body.style.overflow = prevent ? 'hidden' : '';
     }
 
-    // Fechar modais
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('show');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        preventScroll(false);
+      }, 300);
+    }
+
+    function copyPixKey() {
+      const pixKey = document.getElementById('pixKey').textContent;
+      
+      if (navigator.clipboard && window.isSecureContext) {
+        // Para contextos seguros (HTTPS)
+        navigator.clipboard.writeText(pixKey)
+          .then(() => {
+            const button = document.querySelector('button[onclick="copyPixKey()"]');
+            const originalText = button.textContent;
+            button.textContent = 'Chave Copiada! ✓';
+            button.classList.add('bg-green-600');
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.classList.remove('bg-green-600');
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error('Erro ao copiar chave PIX:', err);
+            fallbackCopyTextToClipboard(pixKey);
+          });
+      } else {
+        // Fallback para contextos não seguros
+        fallbackCopyTextToClipboard(pixKey);
+      }
+    }
+
+    function fallbackCopyTextToClipboard(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.top = '0';
+      textArea.style.left = '0';
+      textArea.style.width = '2em';
+      textArea.style.height = '2em';
+      textArea.style.padding = '0';
+      textArea.style.border = 'none';
+      textArea.style.outline = 'none';
+      textArea.style.boxShadow = 'none';
+      textArea.style.background = 'transparent';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        document.execCommand('copy');
+        const button = document.querySelector('button[onclick="copyPixKey()"]');
+        const originalText = button.textContent;
+        button.textContent = 'Chave Copiada! ✓';
+        button.classList.add('bg-green-600');
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove('bg-green-600');
+        }, 2000);
+      } catch (err) {
+        console.error('Erro ao copiar chave PIX (fallback):', err);
+        alert("Não foi possível copiar a chave PIX. Por favor, copie manualmente.");
+      }
+
+      document.body.removeChild(textArea);
+    }
+
+    function showPaymentModal(baseValue, itemName = '') {
+      // Elementos que devem ser mostrados/escondidos
+      const fixedValueSection = document.getElementById('fixedValueSection');
+      const creditCardSection = document.getElementById('creditCardSection');
+      const valueDisplay = document.getElementById('selectedValue');
+      const itemNameDisplay = document.getElementById('selectedItemName');
+      const paymentOptions = document.getElementById('paymentOptions');
+      const modal = document.getElementById('paymentModal');
+      
+      if (baseValue === 0) {
+        // Valor livre: mostra input e esconde seções específicas
+        fixedValueSection.classList.add('hidden');
+        creditCardSection.classList.add('hidden');
+        paymentOptions.classList.remove('grid', 'grid-cols-2', 'gap-3');
+        itemNameDisplay.textContent = 'Presente com Valor Personalizado';
+      } else {
+        // Valor fixo: mostra seções e atualiza valor
+        fixedValueSection.classList.remove('hidden');
+        creditCardSection.classList.remove('hidden');
+        paymentOptions.classList.add('grid', 'grid-cols-2', 'gap-3');
+        valueDisplay.textContent = `R$ ${baseValue.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+        itemNameDisplay.textContent = itemName || 'Presente Selecionado';
+      }
+      
+      // Mostra a modal com animação
+      modal.classList.remove('hidden');
+      // Pequeno delay para permitir que a transição ocorra
+      setTimeout(() => {
+        modal.classList.add('show');
+      }, 10);
+      
+      // Fecha menu mobile se estiver aberto
+      document.getElementById('mobileMenu').classList.add('hidden');
+      // Previne scroll do background
+      preventScroll(true);
+    }
+
+    // Fechar modal ao clicar fora
     window.onclick = function (event) {
-      const modals = ['paymentModal', 'customPaymentModal'];
-      modals.forEach(modalId => {
-        const modal = document.getElementById(modalId);
-        if (event.target === modal) {
-          modal.classList.add('hidden');
-        }
+      const modal = document.getElementById('paymentModal');
+      if (event.target === modal) {
+        closeModal('paymentModal');
+      }
+    }
+
+    // Fechar menu mobile ao clicar em um link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.remove('show');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
       });
-    }  </script>
+    });
+
+    // Cleanup ao descarregar a página
+    window.addEventListener('beforeunload', () => {
+      preventScroll(false);
+    });
+
+    // Adicionar classe ao navbar quando rolar a página
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Inicialização do AOS
+    AOS.init({
+      once: true, // animação acontece apenas uma vez
+      offset: 100, // offset (em px) do ponto de trigger
+      duration: 800, // duração padrão das animações
+      easing: 'ease-in-out', // timing function padrão
+    });
+  </script>
 </body>
 
 </html>
