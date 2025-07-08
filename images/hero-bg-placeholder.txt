@@ -1,0 +1,5 @@
+<!-- Arquivo temporário para criar uma imagem placeholder -->
+<!-- Este arquivo será substituído pela sua imagem real -->
+<!-- Dimensões recomendadas: 1920x1080px -->
+<!-- Formato: JPG ou PNG -->
+<!-- Nome: hero-bg.jpg -->

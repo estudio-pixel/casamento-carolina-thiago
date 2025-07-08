@@ -1,601 +1,269 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carolina & Thiago - 04/10/2025</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans:wght@300;400;600&display=swap"
-    rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .navbar {
-      transition: all 0.3s ease;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .navbar.scrolled {
-      background-color: white;
-    }
-
-    /* Animação do Menu Mobile */
-    #mobileMenu {
-      transition: all 0.3s ease-in-out;
-      transform-origin: top;
-      opacity: 0;
-      transform: translateY(-20px) scaleY(0.9);
-    }
-
-    #mobileMenu.show {
-      opacity: 1;
-      transform: translateY(0) scaleY(1);
-    }
-
-    /* Animação do Modal */
-    .modal-overlay {
-      transition: opacity 0.3s ease-in-out;
-      opacity: 0;
-    }
-
-    .modal-overlay.show {
-      opacity: 1;
-    }
-
-    .modal-content {
-      transition: all 0.3s ease-in-out;
-      transform: scale(0.95) translateY(20px);
-      opacity: 0;
-    }
-
-    .modal-overlay.show .modal-content {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-    }
-
-    body {
-      font-family: 'Open Sans', sans-serif;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: 'Playfair Display', serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casamento Carolina & Thiago</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Candara:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-
-<body class="bg-rose-50">
-  <!-- Navbar Fixa -->
-  <nav class="navbar fixed w-full z-50">
-    <div class="container mx-auto px-4 py-3 pr-24">
-      <!-- Mobile Menu Button -->
-      <div class="md:hidden flex justify-end mb-2">
-        <button onclick="toggleMobileMenu()" class="text-white hover:text-rose-200 bg-rose-600/80 p-2 rounded-lg backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex justify-center">
-        <div class="flex gap-10">
-          <a href="#hero" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Início</a>
-          <a href="#celebração" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Celebração</a>
-          <a href="#confirmacao" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Confirmação</a>
-          <a href="#presentes" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Presentes</a>
-        </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden">
-        <div class="flex flex-col items-center gap-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg">
-          <a href="#hero" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Início</a>
-          <a href="#celebração" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Celebração</a>
-          <a href="#confirmacao" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Confirmação</a>
-          <a href="#presentes" class="text-rose-700 hover:text-rose-500 font-medium transition-colors">Presentes</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header id="hero" class="relative h-screen flex items-center justify-center text-center">
-    <div
-      class="absolute inset-0 bg-[url('/public/images/hero-background.png')] bg-cover bg-center">
-    </div>
-    <div class="absolute inset-0 bg-black/40"></div>
-    <div class="relative z-10 px-4">
-      <h1 class="text-6xl md:text-8xl font-great-vibes text-white mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-duration="1000">Carolina & Thiago</h1>
-      <p class="text-2xl md:text-3xl text-white mb-8 font-raleway drop-shadow-md" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">04 de Outubro de 2025</p>
-    </div>
-  </header>
-
-  <!-- Bible Quote Section -->
-  <section class="py-16 px-4 bg-white">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-xl md:text-2xl text-rose-700 italic font-playfair leading-relaxed" data-aos="fade-up">
-        "O amor é paciente, o amor é bondoso.<br>
-        Não inveja, não se vangloria, não se orgulha.<br>
-        Tudo sofre, tudo crê, tudo espera, tudo suporta.<br>
-        O amor jamais acaba."
-      </p>
-      <p class="mt-4 text-gray-600 font-medium" data-aos="fade-up" data-aos-delay="200">1 Coríntios 13:4-8</p>
-    </div>
-  </section>
-
-  <!-- Detalhes da Celebração -->
-  <section id="celebração" class="py-16 px-4 md:px-8 max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-raleway font-bold mb-8 text-rose-700" data-aos="fade-down">Nossa Celebração</h2>
-
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <!-- Cerimônia com Foto -->
-        <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-right" data-aos-duration="1000">
-          <img
-            src="/public/images/capela-santa-catarina.png"
-            alt="Capela Santa Catarina" class="w-full h-64 object-cover rounded-lg mb-4">
-          <h3 class="text-xl font-semibold mb-2">Cerimônia</h3>
-          <p class="text-gray-600 mb-2">10 horas</p>
-          <p class="text-gray-600 mb-4">Capela Santa Catarina de Alexandria</p>
-          <a href="https://maps.app.goo.gl/Ub1kWedXro7NNUPf7" target="_blank"
-            class="text-rose-600 hover:text-rose-700 transition flex items-center justify-center gap-1">
-            <img src="/public/images/map-marker.png" alt="Localização" class="h-10 w-10">
-            R. Dona Francisca, 9660 - Zona Industrial Norte, Joinville - SC
-          </a>
-        </div>
-
-        <!-- Recepção com Foto -->
-        <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-left" data-aos-duration="1000">
-          <img src="/public/images/restaurante-colonial.png"
-            alt="Restaurante Colonial" class="w-full h-64 object-cover rounded-lg mb-4">
-          <h3 class="text-xl font-semibold mb-2">Recepção</h3>
-          <p class="text-gray-600 mb-2">12 horas</p>
-          <p class="text-gray-600 mb-4">Restaurante Colonial Gute Küche</p>
-          <a href="https://maps.app.goo.gl/rqfv3aFZswGcGS399" target="_blank"
-            class="text-rose-600 hover:text-rose-700 transition flex items-center justify-center gap-1">
-            <img src="/public/images/map-marker.png" alt="Localização" class="h-10 w-10">
-            R. Eugênio Ernesto Kunde, 1100 - Pirabeiraba, Joinville - SC
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seção de Confirmação de Presença -->
-  <section id="confirmacao" class="py-16 px-4 md:px-8 bg-white">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8 text-rose-700" data-aos="fade-down">Confirmação de Presença</h2>
-
-      <div class="bg-rose-50 rounded-xl p-8 mb-8 shadow-sm" data-aos="zoom-in" data-aos-duration="1000">
-        <p class="text-lg mb-4">
-          Queridos amigos e familiares,<br>
-          Para que possamos nos preparar da melhor forma, pedimos que confirmem sua presença até
-          <span class="font-semibold text-rose-700">20 de Setembro de 2025</span>.
-        </p>
-
-        <p class="mb-8 italic text-gray-600">
-          "Alegrem-se sempre com os que se alegram..." - Romanos 12:15
-        </p>
-
-        <a href="https://wa.me/5511999999999?text=Olá%20Carolina!%20Confirmo%20presença%20para%20o%20seu%20casamento.%20Compareceremos%20%5Bnúmero%20de%20pessoas%5D%20."
-          target="_blank"
-          class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-3 rounded-full inline-block transition-transform transform hover:scale-105">
-          Confirmar Presença via WhatsApp
-        </a>
-
-        <p class="mt-6 text-sm text-gray-500">
-          Por favor, informe o número de pessoas que irão nos prestigiar
-        </p>
-      </div>
-
-      <div class="mt-8 max-w-2xl mx-auto text-gray-600">
-        <p class="mb-4">Sua confirmação é essencial para nossa organização. Caso prefira, você também pode nos contatar
-          por outros meios.</p>
-        <p class="text-sm">Com carinho,<br>Carolina & Thiago</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lista de Presentes -->
-  <section id="presentes" class="py-16 px-4 md:px-8 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-raleway font-bold mb-4 text-center text-rose-700" data-aos="fade-down">Nossa Lista de Presentes</h2>
-
-      <div class="text-center mb-12 max-w-2xl mx-auto">
-        <p class="text-sm text-rose-600 italic" data-aos="fade-up" data-aos-delay="200">
-          "Cada um dê conforme determinou em seu coração, não com pesar ou por obrigação,
-          pois Deus ama quem dá com alegria." - 2 Coríntios 9:7
-        </p>
-        <div class="border-t border-rose-100 w-24 mx-auto my-6"></div>
-      </div>
-
-      <!-- Lojas Parceiras -->
-      <div class="mb-16">
-        <h3 class="text-2xl font-raleway font-semibold mb-8 text-center text-rose-700" data-aos="fade-down">Nossas Listas em Lojas</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <a href="https://www.magazineluiza.com.br" target="_blank"
-            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-4 border border-gray-100"
-            data-aos="fade-up" data-aos-delay="100">
-            <img src="/public/images/stores/mercado-livre.png" alt="Mercado Livre" class="h-12 object-contain">
-            <span class="text-gray-600 font-medium">Mercado Livre</span>
-          </a>
-          <a href="https://www.americanas.com.br" target="_blank"
-            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-4 border border-gray-100"
-            data-aos="fade-up" data-aos-delay="200">
-            <img src="/public/images/stores/americanas.png" alt="Americanas" class="h-12 object-contain">
-            <span class="text-gray-600 font-medium">Americanas</span>
-          </a>
-          <a href="https://www.tokstok.com.br" target="_blank"
-            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-4 border border-gray-100"
-            data-aos="fade-up" data-aos-delay="300">
-            <img src="/public/images/stores/havan.png" alt="Havan" class="h-12 object-contain">
-            <span class="text-gray-600 font-medium">Havan</span>
-          </a>
-          <a href="https://www.camicado.com.br" target="_blank" 
-            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-4 border border-gray-100"
-            data-aos="fade-up" data-aos-delay="400">
-            <img src="/public/images/stores/amazon.png" alt="Amazon" class="h-12 object-contain">
-            <span class="text-gray-600 font-medium">Amazon</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Lista de Presentes -->
-      <div>
-        <h3 class="text-2xl font-raleway font-semibold mb-8 text-center text-rose-700" data-aos="fade-down">Lista de Presentes Sugeridos</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-          <!-- Item 1 -->
-          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
-            data-aos="fade-up" data-aos-delay="100">
-            <img src="/public/images/gifts/air-fryer.png" alt="Air Fryer" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <h4 class="font-semibold text-gray-800 mb-2">Air Fryer Digital</h4>
-              <div class="flex items-center justify-between flex-col gap-2">
-                <span class="text-rose-600 font-semibold">R$ 450,00</span>
-                <button onclick="showPaymentModal(450, 'Air Fryer Digital')" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition-colors">
-                  Presentear
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
-            data-aos="fade-up" data-aos-delay="200">
-            <img src="/public/images/gifts/mixer.png" alt="Mixer" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <h4 class="font-semibold text-gray-800 mb-2">Mixer Multiuso</h4>
-              <div class="flex items-center justify-between flex-col gap-2">
-                <span class="text-rose-600 font-semibold">R$ 280,00</span>
-                <button onclick="showPaymentModal(280, 'Mixer Multiuso')" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition-colors">
-                  Presentear
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
-            data-aos="fade-up" data-aos-delay="300">
-            <img src="/public/images/gifts/coffee-maker.png" alt="Cafeteira" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <h4 class="font-semibold text-gray-800 mb-2">Cafeteira Elétrica</h4>
-              <div class="flex items-center justify-between flex-col gap-2">
-                <span class="text-rose-600 font-semibold">R$ 320,00</span>
-                <button onclick="showPaymentModal(320, 'Cafeteira Elétrica')" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition-colors">
-                  Presentear
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
-            data-aos="fade-up" data-aos-delay="400">
-            <img src="/public/images/gifts/toaster.png" alt="Torradeira" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <h4 class="font-semibold text-gray-800 mb-2">Torradeira Smart</h4>
-              <div class="flex items-center justify-between flex-col gap-2">
-                <span class="text-rose-600 font-semibold">R$ 180,00</span>
-                <button onclick="showPaymentModal(180, 'Torradeira Smart')" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition-colors">
-                  Presentear
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Valor Personalizado -->
-      <div class="mt-12 text-center">
-        <p class="text-gray-600 mb-4">Não encontrou o que procurava?</p>
-        <button onclick="showPaymentModal(0)" class="bg-rose-600 text-white px-6 py-3 rounded-full hover:bg-rose-700 transition-colors inline-flex items-center gap-2">
-          Presentear com outro valor 🤍
-        </button>
-      </div>
-    </div>
-
-    <!-- Modal Unificada -->
-    <div id="paymentModal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-[100] overflow-y-auto">
-      <div class="min-h-full flex items-center justify-center p-2">
-        <div class="modal-content bg-white w-full sm:max-w-sm mx-auto rounded-xl shadow-xl">
-          <!-- Header -->
-          <div class="p-3 border-b border-gray-100">
-            <div class="flex justify-between items-center">
-              <h3 class="text-lg font-playfair font-semibold text-rose-700">Presenteie o casal 🤍</h3>
-              <button onclick="closeModal('paymentModal')" class="text-gray-500 hover:text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="p-3">
-            <!-- Valor Selecionado ou Input de Valor -->
-            <div id="fixedValueSection" class="mb-3">
-              <div class="bg-rose-50 p-2 rounded-lg text-center">
-                <p id="selectedItemName" class="text-sm text-gray-600 mb-1"></p>
-                <p id="selectedValue" class="text-lg font-bold text-rose-600"></p>
-              </div>
-            </div>
-
-            <!-- Opções de Pagamento -->
-            <div id="paymentOptions">
-              <!-- PIX -->
-              <div class="bg-gray-50 p-3 rounded-lg">
-                <div class="flex items-center justify-between mb-2">
-                  <h4 class="font-medium text-sm">PIX</h4>
-                  <img src="/public/images/pix-logo.png" alt="Logo PIX" class="h-5">
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="names">Carolina & Thiago</span>
                 </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#detalhes" class="nav-link">Detalhes</a></li>
+                    <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+                    <li><a href="#presentes" class="nav-link">Presentes</a></li>
+                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                    <li><a href="#historia" class="nav-link">Nossa História</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-names">Carolina & Thiago</h1>
+            <p class="hero-date">04 de Outubro de 2025</p>
+            <p class="hero-text">Junte-se a nós para celebrar o nosso amor</p>
+            <div class="hero-countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detalhes do Evento -->
+    <section id="detalhes" class="detalhes">
+        <div class="container">
+            <h2 class="section-title">Detalhes do Evento</h2>
+            
+            <div class="evento-grid">
+                <div class="evento-card">
+                    <div class="evento-image">
+                        <img src="images/capela-santa-catarina.png" alt="Capela Santa Catarina de Alexandria">
+                    </div>
+                    <h3>Cerimônia</h3>
+                    <div class="evento-info">
+                        <p><strong>Data:</strong> 04 de Outubro de 2025</p>
+                        <p><strong>Horário:</strong> 10:00h</p>
+                        <p><strong>Local:</strong> Capela Santa Catarina de Alexandria</p>
+                        <p class="endereco">R. Dona Francisca, 9660 - Zona Industrial Norte<br>Joinville, SC</p>
+                        <a href="https://maps.app.goo.gl/yV3Xm9m2k88qFqh98" class="map-link" target="_blank">Ver no Google Maps</a>
+                    </div>
+                </div>
+
+                <div class="evento-card">
+                    <div class="evento-image">
+                        <img src="images/restaurante-colonial.png" alt="Restaurante Gute Küche">
+                    </div>
+                    <h3>Recepção</h3>
+                    <div class="evento-info">
+                        <p><strong>Data:</strong> 04 de Outubro de 2025</p>
+                        <p><strong>Horário:</strong> 12:00h</p>
+                        <p><strong>Local:</strong> Restaurante Gute Küche</p>
+                        <p class="endereco">R. Eugênio Ernesto Kunde, 1100 - Pirabeiraba<br>Joinville, SC</p>
+                        <a href="https://maps.app.goo.gl/xUFJKvfnomL5Dz5TA" class="map-link" target="_blank">Ver no Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dress-code">
+                <h3>Dress Code</h3>
+                <p>Queremos que você se sinta confortável! O dress code é <strong>casual elegante</strong>. Não é necessário roupa muito formal - vista-se com o que te deixa bonito(a) e à vontade para celebrar conosco!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp">
+        <div class="container">
+            <h2 class="section-title">Confirmação de Presença</h2>
+            <p class="rsvp-subtitle">Por favor, confirme sua presença até <strong>02 de Setembro de 2025</strong></p>
+            
+            <div class="rsvp-form-container">
+                <form class="rsvp-form" action="https://formspree.io/f/mldnygab" method="POST">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="presenca">Presença</label>
+                        <select id="presenca" name="presenca" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="aceito">Aceito com alegria!</option>
+                            <option value="nao-poderei">Não poderei ir</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="acompanhantes">Número de Acompanhantes</label>
+                        <select id="acompanhantes" name="acompanhantes">
+                            <option value="0">Apenas eu</option>
+                            <option value="1">Eu + 1 acompanhante</option>
+                            <option value="2">Eu + 2 acompanhantes</option>
+                            <option value="3">Eu + 3 acompanhantes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observacoes">Observações (opcional)</label>
+                        <textarea id="observacoes" name="observacoes" rows="3" placeholder="Alguma observação especial?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Confirmar Presença</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista de Presentes -->
+    <section id="presentes" class="presentes">
+        <div class="container">
+            <h2 class="section-title">Lista de Presentes</h2>
+            <p class="presentes-subtitle">Sua presença já é o nosso maior presente! Mas se quiser nos ajudar a começar nossa nova jornada, ficamos muito gratos</p>
+            
+            <div class="presente-dinheiro">
+                <h3>Presente em Dinheiro</h3>
+                <p>Você pode contribuir com um valor através das opções abaixo:</p>
                 
-                <div class="flex justify-center mb-2">
-                  <img src="/public/images/qr-code-pix.png" alt="QR Code PIX" class="h-24 border-2 border-white rounded shadow-sm">
+                <div class="pix-container">
+                    <h4>PIX</h4>
+                    <div class="pix-info">
+                        <div class="pix-details">
+                            <p><strong>Chave PIX:</strong></p>
+                            <div class="pix-key">
+                                <span id="pix-key">(47) 99136-8880</span>
+                                <button class="copy-btn" onclick="copyPix()">Copiar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <button onclick="copyPixKey()" 
-                  class="block w-full bg-rose-600 text-white text-center py-2 rounded-lg hover:bg-rose-700 transition-colors text-sm">
-                  Copiar Chave PIX
-                </button>
-                <div id="pixKey" class="mt-1 text-center text-xs text-gray-500 font-mono">47999999999</div>
-              </div>
-
-              <!-- Cartão de Crédito -->
-              <div id="creditCardSection" class="bg-gray-50 p-3 rounded-lg">
-                <div class="flex items-center justify-between mb-2">
-                  <h4 class="font-medium text-sm">Cartão</h4>
-                  <div class="flex gap-1">
-                    <img src="/public/images/visa.png" alt="Visa" class="h-4">
-                    <img src="/public/images/mastercard.png" alt="Mastercard" class="h-4">
-                  </div>
+                <div class="cartao-presente">
+                    <div class="presente-icon">💳</div>
+                    <h4>Presentear com Cartão</h4>
+                    <p>Contribua com o valor que desejar</p>
+                    <a href="https://pag.ae/7_Qu-erG9" class="cartao-link" target="_blank">Presentear com Cartão</a>
                 </div>
-
-                <div class="flex justify-center mb-2">
-                  <img src="/public/images/credit-card-icon.png" alt="Cartão de Crédito" class="h-24 p-4">
-                </div>
-
-                <a href="https://checkout.stripe.com/c/pay/YOUR_STRIPE_LINK_HERE" target="_blank" 
-                  class="block w-full bg-rose-600 text-white text-center py-2 rounded-lg hover:bg-rose-700 transition-colors text-sm">
-                  Pagar com Cartão
-                </a>
-                <div class="mt-1 text-center text-xs text-gray-500">Via PagBank</div>
-              </div>
             </div>
-          </div>
+
+            <div class="listas-introducao">
+                <h3>Listas de Presentes</h3>
+                <p>Ou escolha algo especial das nossas listas online:</p>
+            </div>
+
+            <div class="presentes-grid">
+                <div class="presente-card">
+                    <div class="presente-logo">
+                        <img src="images/amazon-logo.png" alt="Amazon">
+                    </div>
+                    <a href="https://www.amazon.com.br/hz/wishlist/ls/1PED60A30PF59" class="presente-link" target="_blank">Ver Lista Amazon</a>
+                </div>
+
+                <div class="presente-card">
+                    <div class="presente-logo">
+                        <img src="images/mercado-livre-logo.png" alt="Mercado Livre">
+                    </div>
+                    <a href="https://www.mercadolivre.com.br/presentes/thiago-e-carolina-uxasn" class="presente-link" target="_blank">Ver Lista Mercado Livre</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Mensagem Final -->
-  <section class="py-16 px-4 bg-white border-t border-rose-100">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-playfair text-rose-700 mb-6" data-aos="fade-up">Gratidão</h2>
-      <p class="text-gray-600 leading-relaxed mb-4" data-aos="fade-up" data-aos-delay="200">
-        Queridos amigos e familiares, sua presença e carinho são os maiores presentes que poderíamos receber. 
-        Cada um de vocês tem um lugar especial em nossa história e queremos compartilhar esse momento único com todos.
-      </p>
-      <p class="text-gray-600 italic" data-aos="fade-up" data-aos-delay="400">
-        Com amor e alegria,<br>
-        Carolina & Thiago
-      </p>
-    </div>
-  </section>
+    <!-- Galeria -->
+    <!-- <section id="galeria" class="galeria">
+        <div class="container">
+            <h2 class="section-title">Galeria de Fotos</h2>
+            <div class="galeria-grid">
+                <div class="galeria-item">
+                    <img src="https://via.placeholder.com/400x300/eae4d8/3b5a00?text=Foto+1" alt="Foto do casal">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://via.placeholder.com/400x300/a38e6d/eae4d8?text=Foto+2" alt="Foto do casal">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://via.placeholder.com/400x300/eae4d8/3b5a00?text=Foto+3" alt="Foto do casal">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://via.placeholder.com/400x300/a38e6d/eae4d8?text=Foto+4" alt="Foto do casal">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://via.placeholder.com/400x300/eae4d8/3b5a00?text=Foto+5" alt="Foto do casal">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://via.placeholder.com/400x300/a38e6d/eae4d8?text=Foto+6" alt="Foto do casal">
+                </div>
+            </div>
+        </div>
+    </section> -->
 
-  <!-- Footer -->
-  <footer class="bg-rose-700 text-white py-8">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-6">
-        <img src="/public/images/rings-icon.png" alt="Alianças" class="w-12 h-12 mx-auto mb-4">
-        <p class="text-lg font-playfair">Carolina & Thiago</p>
-        <p class="text-sm mt-2 font-light">04 de Outubro de 2025</p>
-      </div>
-      <div class="flex flex-col md:flex-row justify-center gap-6 text-center text-sm">
-        <div class="border-l border-rose-200 hidden md:block"></div>
-      </div>
-    </div>
-  </footer>
+    <!-- Nossa História -->
+    <!-- <section id="historia" class="historia">
+        <div class="container">
+            <h2 class="section-title">Nossa História</h2>
+            
+            <div class="historia-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">💕</div>
+                    <div class="timeline-content">
+                        <h3>Como nos conhecemos</h3>
+                        <p>Foi em uma tarde de primavera de 2020, através de amigos em comum, que nossos caminhos se cruzaram. O que começou como uma conversa casual rapidamente se transformou em horas de conversas, risadas e a descoberta de que tínhamos muito mais em comum do que imaginávamos.</p>
+                    </div>
+                </div>
 
-  <script>
-    function toggleMobileMenu() {
-      const mobileMenu = document.getElementById('mobileMenu');
-      if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-        // Pequeno delay para permitir que a transição ocorra
-        setTimeout(() => {
-          mobileMenu.classList.add('show');
-        }, 10);
-      } else {
-        mobileMenu.classList.remove('show');
-        // Aguarda a animação terminar antes de esconder
-        setTimeout(() => {
-          mobileMenu.classList.add('hidden');
-        }, 300);
-      }
-    }
+                <div class="timeline-item">
+                    <div class="timeline-icon">💍</div>
+                    <div class="timeline-content">
+                        <h3>O Pedido</h3>
+                        <p>Depois de anos juntos, construindo sonhos e compartilhando momentos especiais, chegou o momento mágico. Em um pôr do sol inesquecível, com o coração cheio de amor e esperança, veio a pergunta que mudaria nossas vidas para sempre. E a resposta foi um "SIM!" cheio de alegria e lágrimas de felicidade.</p>
+                    </div>
+                </div>
 
-    function preventScroll(prevent) {
-      document.body.style.overflow = prevent ? 'hidden' : '';
-    }
+                <div class="timeline-item">
+                    <div class="timeline-icon">🙏</div>
+                    <div class="timeline-content">
+                        <h3>Agradecimento</h3>
+                        <p>Queremos expressar nossa gratidão profunda por fazer parte da nossa história. Sua presença em nossas vidas é um presente precioso, e ter você conosco neste dia especial torna tudo ainda mais significativo. Obrigado por celebrar o amor conosco!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      modal.classList.remove('show');
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        preventScroll(false);
-      }, 300);
-    }
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Carolina & Thiago. Feito com 💕</p>
+        </div>
+    </footer>
 
-    function copyPixKey() {
-      const pixKey = document.getElementById('pixKey').textContent;
-      
-      if (navigator.clipboard && window.isSecureContext) {
-        // Para contextos seguros (HTTPS)
-        navigator.clipboard.writeText(pixKey)
-          .then(() => {
-            const button = document.querySelector('button[onclick="copyPixKey()"]');
-            const originalText = button.textContent;
-            button.textContent = 'Chave Copiada! ✓';
-            button.classList.add('bg-green-600');
-            setTimeout(() => {
-              button.textContent = originalText;
-              button.classList.remove('bg-green-600');
-            }, 2000);
-          })
-          .catch((err) => {
-            console.error('Erro ao copiar chave PIX:', err);
-            fallbackCopyTextToClipboard(pixKey);
-          });
-      } else {
-        // Fallback para contextos não seguros
-        fallbackCopyTextToClipboard(pixKey);
-      }
-    }
-
-    function fallbackCopyTextToClipboard(text) {
-      const textArea = document.createElement('textarea');
-      textArea.value = text;
-      textArea.style.position = 'fixed';
-      textArea.style.top = '0';
-      textArea.style.left = '0';
-      textArea.style.width = '2em';
-      textArea.style.height = '2em';
-      textArea.style.padding = '0';
-      textArea.style.border = 'none';
-      textArea.style.outline = 'none';
-      textArea.style.boxShadow = 'none';
-      textArea.style.background = 'transparent';
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-
-      try {
-        document.execCommand('copy');
-        const button = document.querySelector('button[onclick="copyPixKey()"]');
-        const originalText = button.textContent;
-        button.textContent = 'Chave Copiada! ✓';
-        button.classList.add('bg-green-600');
-        setTimeout(() => {
-          button.textContent = originalText;
-          button.classList.remove('bg-green-600');
-        }, 2000);
-      } catch (err) {
-        console.error('Erro ao copiar chave PIX (fallback):', err);
-        alert("Não foi possível copiar a chave PIX. Por favor, copie manualmente.");
-      }
-
-      document.body.removeChild(textArea);
-    }
-
-    function showPaymentModal(baseValue, itemName = '') {
-      // Elementos que devem ser mostrados/escondidos
-      const fixedValueSection = document.getElementById('fixedValueSection');
-      const creditCardSection = document.getElementById('creditCardSection');
-      const valueDisplay = document.getElementById('selectedValue');
-      const itemNameDisplay = document.getElementById('selectedItemName');
-      const paymentOptions = document.getElementById('paymentOptions');
-      const modal = document.getElementById('paymentModal');
-      
-      if (baseValue === 0) {
-        // Valor livre: mostra input e esconde seções específicas
-        fixedValueSection.classList.add('hidden');
-        creditCardSection.classList.add('hidden');
-        paymentOptions.classList.remove('grid', 'grid-cols-2', 'gap-3');
-        itemNameDisplay.textContent = 'Presente com Valor Personalizado';
-      } else {
-        // Valor fixo: mostra seções e atualiza valor
-        fixedValueSection.classList.remove('hidden');
-        creditCardSection.classList.remove('hidden');
-        paymentOptions.classList.add('grid', 'grid-cols-2', 'gap-3');
-        valueDisplay.textContent = `R$ ${baseValue.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
-        itemNameDisplay.textContent = itemName || 'Presente Selecionado';
-      }
-      
-      // Mostra a modal com animação
-      modal.classList.remove('hidden');
-      // Pequeno delay para permitir que a transição ocorra
-      setTimeout(() => {
-        modal.classList.add('show');
-      }, 10);
-      
-      // Fecha menu mobile se estiver aberto
-      document.getElementById('mobileMenu').classList.add('hidden');
-      // Previne scroll do background
-      preventScroll(true);
-    }
-
-    // Fechar modal ao clicar fora
-    window.onclick = function (event) {
-      const modal = document.getElementById('paymentModal');
-      if (event.target === modal) {
-        closeModal('paymentModal');
-      }
-    }
-
-    // Fechar menu mobile ao clicar em um link
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenu.classList.remove('show');
-        setTimeout(() => {
-          mobileMenu.classList.add('hidden');
-        }, 300);
-      });
-    });
-
-    // Cleanup ao descarregar a página
-    window.addEventListener('beforeunload', () => {
-      preventScroll(false);
-    });
-
-    // Adicionar classe ao navbar quando rolar a página
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Inicialização do AOS
-    AOS.init({
-      once: true, // animação acontece apenas uma vez
-      offset: 100, // offset (em px) do ponto de trigger
-      duration: 800, // duração padrão das animações
-      easing: 'ease-in-out', // timing function padrão
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
