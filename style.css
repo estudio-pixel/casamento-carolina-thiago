@@ -1,3 +1,156 @@
+body, html {
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
+/* Exceção: onde usar a fonte Lovely Day, manter como está */
+.names, .lovely-day {
+  font-family: 'lovely day', 'lovely-day', 'lovely-day.ttf', serif !important;
+}
+.pix-key, .pix-details, .pix-info, .cartao-presente, .presente-card {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+/* Presentes - Padronização visual */
+
+.presentes-opcoes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 700px) {
+  .presentes-opcoes {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 2rem;
+    align-items: stretch;
+  }
+}
+
+.presente-bloco {
+  /* Garante que os cards fiquem alinhados e com altura igual */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+.presente-bloco {
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+
+/* Só as listas (Amazon e Mercado Livre) terão card visual */
+.presente-bloco .presente-card {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.presente-subtitulo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  text-align: center;
+  color: #3b5a00;
+  letter-spacing: 0.01em;
+}
+
+.pix-container, .cartao-presente {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  .presentes-opcoes {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .presente-bloco {
+    max-width: 98vw;
+  }
+}
+
+.pix-key {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.copy-btn {
+  background: #a38e6d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.copy-btn:hover {
+  background: #3b5a00;
+}
+
+.cartao-link, .presente-link {
+  display: inline-block;
+  margin-top: 0.7rem;
+  background: #3b5a00;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.cartao-link:hover, .presente-link:hover {
+  background: #a38e6d;
+}
+
+.presente-logo img {
+  max-width: 90px;
+  margin-bottom: 0.7rem;
+}
+
+.presente-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .presentes-opcoes {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
 /* Reset e configurações gerais */
 * {
     margin: 0;
@@ -19,7 +172,7 @@ html {
 }
 
 body {
-    font-family: 'Candara', sans-serif;
+    /* font-family: 'Candara', sans-serif; */
     font-weight: 300;
     line-height: 1.6;
     color: var(--text-color);
@@ -381,7 +534,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    /* gap: 1.5rem; */
 }
 
 .presente-logo {
@@ -390,6 +543,7 @@ section {
     align-items: center;
     height: 80px;
     flex-shrink: 0;
+    margin: 20px
 }
 
 .presente-logo img {
@@ -436,12 +590,12 @@ section {
 
 .cartao-presente {
     background: var(--white);
-    padding: 2rem;
+    /* padding: 2rem; */
     border-radius: 10px;
     border: 2px solid var(--secondary-color);
     text-align: center;
     max-width: 300px;
-    margin: 2rem auto;
+    /* margin: 2rem auto; */
 }
 
 .cartao-presente .presente-icon {
@@ -492,11 +646,11 @@ section {
     display: none;
 }
 
-.pix-container {
+/* .pix-container {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     border-bottom: 2px solid var(--secondary-color);
-}
+} */
 
 .pix-container h4 {
     font-size: 1.3rem;
@@ -532,7 +686,7 @@ section {
     align-items: center;
     gap: 1rem;
     background: var(--white);
-    padding: 1rem;
+    /* padding: 1rem; */
     border-radius: 10px;
     border: 2px solid var(--secondary-color);
 }
@@ -585,7 +739,7 @@ section {
 
 .galeria-item img {
     width: 100%;
-    height: 250px;
+    height: 350px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }

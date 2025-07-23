@@ -102,48 +102,53 @@ document.addEventListener('DOMContentLoaded', function() {
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             // Validação básica
             const nome = document.getElementById('nome').value.trim();
             const presenca = document.getElementById('presenca').value;
-            
             if (!nome || !presenca) {
                 alert('Por favor, preencha todos os campos obrigatórios.');
                 return;
             }
-
-            // Simular envio (você precisará configurar Formspree ou outro serviço)
             const submitBtn = document.querySelector('.btn-submit');
             const originalText = submitBtn.textContent;
-            
             submitBtn.textContent = 'Enviando...';
             submitBtn.disabled = true;
             submitBtn.classList.add('loading');
 
-            // Simular delay de envio
-            setTimeout(() => {
-                // Mostrar mensagem de sucesso
-                const successMessage = document.createElement('div');
-                successMessage.className = 'form-success';
-                successMessage.innerHTML = `
-                    <h3>✅ Confirmação enviada com sucesso!</h3>
-                    <p>Obrigado, ${nome}! Recebemos sua confirmação.</p>
-                `;
-                
-                rsvpForm.appendChild(successMessage);
-                
-                // Reset form
-                rsvpForm.reset();
+            // Envio AJAX para Formspree
+            const formData = new FormData(rsvpForm);
+            fetch(rsvpForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'form-success';
+                    successMessage.innerHTML = `
+                        <h3>Confirmação enviada!</h3>
+                        <p>Obrigado, ${nome}! Recebemos sua confirmação.</p>
+                    `;
+                    rsvpForm.appendChild(successMessage);
+                    rsvpForm.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('loading');
+                } else {
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Erro ao enviar. Tente novamente.');
+                    });
+                }
+            })
+            .catch(error => {
+                alert(error.message || 'Erro ao enviar. Tente novamente.');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('loading');
-                
-                // Remover mensagem após 5 segundos
-                setTimeout(() => {
-                    successMessage.remove();
-                }, 5000);
-                
-            }, 2000);
+            });
         });
     }
 
@@ -272,7 +277,7 @@ function gerarUrlPagamento(valor) {
 
 // Função para copiar chave PIX
 function copyPix() {
-    const pixKey = '(47) 99136-8880';
+    const pixKey = '47991368880';
     
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(pixKey).then(() => {

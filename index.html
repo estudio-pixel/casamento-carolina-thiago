@@ -1,269 +1,297 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casamento Carolina & Thiago</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Candara:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casamento Carolina & Thiago</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <span class="names">Carolina & Thiago</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Início</a></li>
-                    <li><a href="#detalhes" class="nav-link">Detalhes</a></li>
-                    <li><a href="#rsvp" class="nav-link">RSVP</a></li>
-                    <li><a href="#presentes" class="nav-link">Presentes</a></li>
-                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
-                    <li><a href="#historia" class="nav-link">Nossa História</a></li>
-                </ul>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-names">Carolina & Thiago</h1>
-            <p class="hero-date">04 de Outubro de 2025</p>
-            <p class="hero-text">Junte-se a nós para celebrar o nosso amor</p>
-            <div class="hero-countdown">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-label">Dias</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-label">Horas</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-label">Minutos</span>
-                </div>
-            </div>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="names">Carolina & Thiago</span>
         </div>
-    </section>
-
-    <!-- Detalhes do Evento -->
-    <section id="detalhes" class="detalhes">
-        <div class="container">
-            <h2 class="section-title">Detalhes do Evento</h2>
-            
-            <div class="evento-grid">
-                <div class="evento-card">
-                    <div class="evento-image">
-                        <img src="images/capela-santa-catarina.png" alt="Capela Santa Catarina de Alexandria">
-                    </div>
-                    <h3>Cerimônia</h3>
-                    <div class="evento-info">
-                        <p><strong>Data:</strong> 04 de Outubro de 2025</p>
-                        <p><strong>Horário:</strong> 10:00h</p>
-                        <p><strong>Local:</strong> Capela Santa Catarina de Alexandria</p>
-                        <p class="endereco">R. Dona Francisca, 9660 - Zona Industrial Norte<br>Joinville, SC</p>
-                        <a href="https://maps.app.goo.gl/yV3Xm9m2k88qFqh98" class="map-link" target="_blank">Ver no Google Maps</a>
-                    </div>
-                </div>
-
-                <div class="evento-card">
-                    <div class="evento-image">
-                        <img src="images/restaurante-colonial.png" alt="Restaurante Gute Küche">
-                    </div>
-                    <h3>Recepção</h3>
-                    <div class="evento-info">
-                        <p><strong>Data:</strong> 04 de Outubro de 2025</p>
-                        <p><strong>Horário:</strong> 12:00h</p>
-                        <p><strong>Local:</strong> Restaurante Gute Küche</p>
-                        <p class="endereco">R. Eugênio Ernesto Kunde, 1100 - Pirabeiraba<br>Joinville, SC</p>
-                        <a href="https://maps.app.goo.gl/xUFJKvfnomL5Dz5TA" class="map-link" target="_blank">Ver no Google Maps</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dress-code">
-                <h3>Dress Code</h3>
-                <p>Queremos que você se sinta confortável! O dress code é <strong>casual elegante</strong>. Não é necessário roupa muito formal - vista-se com o que te deixa bonito(a) e à vontade para celebrar conosco!</p>
-            </div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Início</a></li>
+          <li><a href="#detalhes" class="nav-link">Detalhes</a></li>
+          <li><a href="#dresscode" class="nav-link">Dress Code</a></li>
+          <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+          <li><a href="#presentes" class="nav-link">Presentes</a></li>
+          <li><a href="#galeria" class="nav-link">Galeria</a></li>
+          <!-- <li><a href="#historia" class="nav-link">Nossa História</a></li> -->
+        </ul>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </section>
+      </div>
+    </nav>
+  </header>
 
-    <!-- RSVP Section -->
-    <section id="rsvp" class="rsvp">
-        <div class="container">
-            <h2 class="section-title">Confirmação de Presença</h2>
-            <p class="rsvp-subtitle">Por favor, confirme sua presença até <strong>02 de Setembro de 2025</strong></p>
-            
-            <div class="rsvp-form-container">
-                <form class="rsvp-form" action="https://formspree.io/f/mldnygab" method="POST">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="presenca">Presença</label>
-                        <select id="presenca" name="presenca" required>
-                            <option value="">Selecione uma opção</option>
-                            <option value="aceito">Aceito com alegria!</option>
-                            <option value="nao-poderei">Não poderei ir</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="acompanhantes">Número de Acompanhantes</label>
-                        <select id="acompanhantes" name="acompanhantes">
-                            <option value="0">Apenas eu</option>
-                            <option value="1">Eu + 1 acompanhante</option>
-                            <option value="2">Eu + 2 acompanhantes</option>
-                            <option value="3">Eu + 3 acompanhantes</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="observacoes">Observações (opcional)</label>
-                        <textarea id="observacoes" name="observacoes" rows="3" placeholder="Alguma observação especial?"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Confirmar Presença</button>
-                </form>
-            </div>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-names">Carolina & Thiago</h1>
+      <p class="hero-date">04 de Outubro de 2025</p>
+      <blockquote class="hero-bible-verse">
+        "Acima de tudo, porém, revistam-se do amor, que é o elo perfeito."<br>
+        <span class="bible-ref">Colossenses 3:14</span>
+      </blockquote>
+      <div class="hero-countdown">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">00</span>
+          <span class="countdown-label">Dias</span>
         </div>
-    </section>
-
-    <!-- Lista de Presentes -->
-    <section id="presentes" class="presentes">
-        <div class="container">
-            <h2 class="section-title">Lista de Presentes</h2>
-            <p class="presentes-subtitle">Sua presença já é o nosso maior presente! Mas se quiser nos ajudar a começar nossa nova jornada, ficamos muito gratos</p>
-            
-            <div class="presente-dinheiro">
-                <h3>Presente em Dinheiro</h3>
-                <p>Você pode contribuir com um valor através das opções abaixo:</p>
-                
-                <div class="pix-container">
-                    <h4>PIX</h4>
-                    <div class="pix-info">
-                        <div class="pix-details">
-                            <p><strong>Chave PIX:</strong></p>
-                            <div class="pix-key">
-                                <span id="pix-key">(47) 99136-8880</span>
-                                <button class="copy-btn" onclick="copyPix()">Copiar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cartao-presente">
-                    <div class="presente-icon">💳</div>
-                    <h4>Presentear com Cartão</h4>
-                    <p>Contribua com o valor que desejar</p>
-                    <a href="https://pag.ae/7_Qu-erG9" class="cartao-link" target="_blank">Presentear com Cartão</a>
-                </div>
-            </div>
-
-            <div class="listas-introducao">
-                <h3>Listas de Presentes</h3>
-                <p>Ou escolha algo especial das nossas listas online:</p>
-            </div>
-
-            <div class="presentes-grid">
-                <div class="presente-card">
-                    <div class="presente-logo">
-                        <img src="images/amazon-logo.png" alt="Amazon">
-                    </div>
-                    <a href="https://www.amazon.com.br/hz/wishlist/ls/1PED60A30PF59" class="presente-link" target="_blank">Ver Lista Amazon</a>
-                </div>
-
-                <div class="presente-card">
-                    <div class="presente-logo">
-                        <img src="images/mercado-livre-logo.png" alt="Mercado Livre">
-                    </div>
-                    <a href="https://www.mercadolivre.com.br/presentes/thiago-e-carolina-uxasn" class="presente-link" target="_blank">Ver Lista Mercado Livre</a>
-                </div>
-            </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">00</span>
+          <span class="countdown-label">Horas</span>
         </div>
-    </section>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">00</span>
+          <span class="countdown-label">Minutos</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Galeria -->
-    <!-- <section id="galeria" class="galeria">
-        <div class="container">
-            <h2 class="section-title">Galeria de Fotos</h2>
-            <div class="galeria-grid">
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300/eae4d8/3b5a00?text=Foto+1" alt="Foto do casal">
+  <!-- Detalhes do Evento -->
+  <section id="detalhes" class="detalhes">
+    <div class="container">
+      <h2 class="section-title">Detalhes do Evento</h2>
+
+      <div class="evento-grid">
+        <div class="evento-card">
+          <div class="evento-image">
+            <img src="images/capela-santa-catarina.png" alt="Capela Santa Catarina de Alexandria">
+          </div>
+          <h3>Cerimônia</h3>
+          <div class="evento-info">
+            <p><strong>Data:</strong> 04 de Outubro de 2025</p>
+            <p><strong>Horário:</strong> 10:00h</p>
+            <p><strong>Local:</strong> Capela Santa Catarina de Alexandria</p>
+            <p class="endereco">R. Dona Francisca, 9660 - Zona Industrial Norte<br>Joinville, SC</p>
+            <a href="https://maps.app.goo.gl/yV3Xm9m2k88qFqh98" class="map-link" target="_blank">Abrir Mapa</a>
+          </div>
+        </div>
+
+        <div class="evento-card">
+          <div class="evento-image">
+            <img src="images/restaurante-colonial.png" alt="Restaurante Gute Küche">
+          </div>
+          <h3>Recepção</h3>
+          <div class="evento-info">
+            <p><strong>Data:</strong> 04 de Outubro de 2025</p>
+            <p><strong>Horário:</strong> 12:00h</p>
+            <p><strong>Local:</strong> Restaurante Gute Küche</p>
+            <p class="endereco">R. Eugênio Ernesto Kunde, 1100 - Pirabeiraba<br>Joinville, SC</p>
+            <a href="https://maps.app.goo.gl/xUFJKvfnomL5Dz5TA" class="map-link" target="_blank">Abrir Mapa</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="dresscode" class="section-title">Dress Code</h2>
+      <div class="dress-code" style="background:#f3ede7;padding:1.5rem 1.2rem;border-radius:12px;margin-bottom:1.5rem;">
+        <p>
+          Queremos que você se sinta confortável!<br>
+          O dress code é <strong>casual elegante</strong>.<br>
+          Não é necessário traje muito formal — vista-se com o que te faça sentir bonito(a) e à vontade para celebrar
+          conosco.<br>
+          <span style="display:inline-block;margin-top:0.7em;">Apenas pedimos que evite as cores
+            <span style="background:#fff;border-radius:4px;color:#7a6c5d;">branco</span>,
+            <span style="background:#ffe4b2;border-radius:4px;color:#7a6c5d;">bege</span> e
+            <span style="background:#f5e0ce;border-radius:4px;color:#7a6c5d;">nude</span>, pois estarão reservadas aos
+            noivos.
+          </span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp" class="rsvp">
+    <div class="container">
+      <h2 class="section-title">Confirmação de Presença</h2>
+      <p class="rsvp-subtitle">Por favor, confirme sua presença até <strong>02 de Setembro de 2025</strong></p>
+
+      <div class="rsvp-form-container">
+        <form class="rsvp-form" action="https://formspree.io/f/mldnygab" method="POST">
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+
+          <div class="form-group">
+            <label for="presenca">Presença</label>
+            <select id="presenca" name="presenca" required>
+              <option value="">Selecione uma opção</option>
+              <option value="aceito">Aceito com alegria!</option>
+              <option value="nao-poderei">Não poderei ir</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="acompanhantes">Número de Acompanhantes</label>
+            <select id="acompanhantes" name="acompanhantes">
+              <option value="0">Apenas eu</option>
+              <option value="1">Eu + 1 acompanhante</option>
+              <option value="2">Eu + 2 acompanhantes</option>
+              <option value="3">Eu + 3 acompanhantes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="observacoes">Observações (opcional)</label>
+            <textarea id="observacoes" name="observacoes" rows="3" placeholder="Alguma observação especial?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Confirmar Presença</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista de Presentes -->
+  <section id="presentes" class="presentes">
+    <div class="container">
+      <h2 class="section-title">Presentes</h2>
+      <p class="presentes-subtitle">
+        Sua presença é o nosso maior presente!<br>
+        Mas, se desejar contribuir com esse momento tão especial, seremos imensamente gratos.
+      </p>
+
+      <div class="presentes-opcoes">
+        <div class="presente-bloco">
+          <h3 class="presente-subtitulo">Presentear com Pix</h3>
+          <div class="pix-container">
+            <img src="images/qr_code_carolina.png" alt="QR Code PIX"
+              style="max-width:120px;max-height:120px;margin-bottom:1rem;">
+            <div class="pix-info">
+              <div class="pix-details">
+                <!-- <p><strong>Chave PIX:</strong></p> -->
+                <div class="pix-key">
+                  <!-- <span id="pix-key">(47) 99136-8880</span> -->
+                  <a href="#" class="cartao-link" onclick="copyPix();return false;">Copiar chave PIX</a>
                 </div>
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300/a38e6d/eae4d8?text=Foto+2" alt="Foto do casal">
-                </div>
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300/eae4d8/3b5a00?text=Foto+3" alt="Foto do casal">
-                </div>
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300/a38e6d/eae4d8?text=Foto+4" alt="Foto do casal">
-                </div>
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300/eae4d8/3b5a00?text=Foto+5" alt="Foto do casal">
-                </div>
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300/a38e6d/eae4d8?text=Foto+6" alt="Foto do casal">
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section> -->
 
-    <!-- Nossa História -->
-    <!-- <section id="historia" class="historia">
-        <div class="container">
-            <h2 class="section-title">Nossa História</h2>
-            
-            <div class="historia-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">💕</div>
-                    <div class="timeline-content">
-                        <h3>Como nos conhecemos</h3>
-                        <p>Foi em uma tarde de primavera de 2020, através de amigos em comum, que nossos caminhos se cruzaram. O que começou como uma conversa casual rapidamente se transformou em horas de conversas, risadas e a descoberta de que tínhamos muito mais em comum do que imaginávamos.</p>
-                    </div>
-                </div>
+        <div class="presente-bloco">
+          <h3 class="presente-subtitulo">Presentear com cartão de crédito</h3>
+          <div class="cartao-presente">
+            <div class="presente-icon"><img src="images/5776615.png" alt="Cartão de Crédito"
+                style="max-width:72px;max-height:72px;"></div>
+            <a href="https://pag.ae/7_Tho1A-r" class="cartao-link" target="_blank">Presentear com Cartão</a>
+          </div>
+        </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-icon">💍</div>
-                    <div class="timeline-content">
-                        <h3>O Pedido</h3>
-                        <p>Depois de anos juntos, construindo sonhos e compartilhando momentos especiais, chegou o momento mágico. Em um pôr do sol inesquecível, com o coração cheio de amor e esperança, veio a pergunta que mudaria nossas vidas para sempre. E a resposta foi um "SIM!" cheio de alegria e lágrimas de felicidade.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">🙏</div>
-                    <div class="timeline-content">
-                        <h3>Agradecimento</h3>
-                        <p>Queremos expressar nossa gratidão profunda por fazer parte da nossa história. Sua presença em nossas vidas é um presente precioso, e ter você conosco neste dia especial torna tudo ainda mais significativo. Obrigado por celebrar o amor conosco!</p>
-                    </div>
-                </div>
+        <div class="presente-bloco">
+          <h3 class="presente-subtitulo">Lista de presentes</h3>
+          <div class="presente-card">
+            <div class="presente-logo">
+              <img src="images/amazon-logo.png" alt="Amazon">
             </div>
+            <a href="https://www.amazon.com.br/hz/wishlist/ls/1PED60A30PF59" class="presente-link" target="_blank">Ver a
+              lista</a>
+          </div>
         </div>
-    </section> -->
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Carolina & Thiago. Feito com 💕</p>
+        <div class="presente-bloco">
+          <h3 class="presente-subtitulo">Lista de presentes</h3>
+          <div class="presente-card">
+            <div class="presente-logo">
+              <img src="images/mercado-livre-logo.png" alt="Mercado Livre">
+            </div>
+            <a href="https://www.mercadolivre.com.br/presentes/thiago-e-carolina-uxasn" class="presente-link"
+              target="_blank">Ver a lista</a>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Galeria -->
+  <section id="galeria" class="galeria">
+    <div class="container">
+      <h2 class="section-title">Galeria de Fotos</h2>
+      <div class="galeria-grid">
+        <div class="galeria-item">
+          <img src="images/galeria/1.jpg" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/3.jpg" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/5.jpg" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/6.png" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/7.png" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/4.png" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/8.jpg" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/9.jpg" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/10.jpg" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/11.png" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/13.jpg" alt="Foto do casal">
+        </div>
+        <div class="galeria-item">
+          <img src="images/galeria/14.png" alt="Foto do casal">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Agradecimento Final -->
+  <section class="agradecimento-final" style="background:#faf6f2;padding:2.5rem 0 2rem 0;">
+    <div class="container" style="text-align:center;max-width:700px;">
+      <h2 class="section-title">Agradecimento</h2>
+      <p style="font-size:1.15rem;margin-bottom:1.5rem;">Somos imensamente gratos por ter vocês em nossas vidas e por
+        compartilhar este momento tão especial conosco. Que Deus abençoe cada um de vocês com amor, alegria e paz!</p>
+      <blockquote style="font-style:italic;color:#7a6c5d;margin:0 auto 1.5rem auto;max-width:500px;">
+        "Grandes coisas fez o Senhor por nós, e por isso estamos alegres."<br>
+        <span style="font-size:0.95rem;">Salmos 126:3</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Carolina & Thiago. Feito com 💕</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
